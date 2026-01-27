@@ -162,7 +162,8 @@ If you use the evolving fuzzy systems library, please cite:
 > SA TELES ROCHA ALVES, K. (2025). *Evolvingfuzzysystems: a new Python library*. Zenodo.  
 > https://doi.org/10.5281/zenodo.15748291
 
-
+📄 Offline / Batch learning paper
+```
 @article{DECAMPOSSOUZA2021231,
 title = {An evolving neuro-fuzzy system based on uni-nullneurons with advanced interpretability capabilities},
 journal = {Neurocomputing},
@@ -175,7 +176,8 @@ url = {https://www.sciencedirect.com/science/article/pii/S092523122100607X},
 author = {Paulo Vitor {de Campos Souza} and Edwin Lughofer},
 keywords = {Evolving neuro-fuzzy system (ENFS-Uni0), Uni-nullneurons, On-line interpretability of fuzzy rules, Degree of rule changes, Incremental feature importance levels, Indicator-based recursive weighted least squares (I-RWLS)},
 }
-
+```
+🌊 Online / Evolving / Data stream paper
 ```
 @article{DECAMPOSSOUZA2024121002,
 title = {IFNN: Enhanced interpretability and optimization in FNN via Adam algorithm},
