@@ -1,32 +1,9 @@
+# 📘 EFNN Drift & Interpretability — Course Notebooks
 
-# 🧠 EFNN Drift & Interpretability — UC3M Seminar
+Welcome! This repository contains **didactic notebooks and scripts** used in the course / seminar on  
+**Fuzzy Neural Networks, Evolving Fuzzy Systems, Concept Drift, and Interpretability**.
 
-Welcome to the **EFNN Drift & Interpretability** repository!  
-This project supports a **hands-on seminar** delivered at **Universidad Carlos III de Madrid (UC3M)** on:
-
-> **Evolving Fuzzy Neural Networks, Interpretability, and Concept Drift in Data Streams**
-
----
-
-## 👨‍🏫 Instructor
-
-**Prof. Dr. Paulo Vitor de Campos Souza**  
-NOVA IMS – Universidade Nova de Lisboa  
-📧 Contact: paulo.souza@novaims.unl.pt
-
----
-
-## 🎯 Course Goals
-
-By the end of this seminar, participants will be able to:
-
-- 🔹 Understand **Fuzzy Neural Networks (FNNs)**  
-- 🔹 Interpret fuzzy rules and membership functions  
-- 🔹 Apply **Evolving Fuzzy Systems** to data streams  
-- 🔹 Detect and analyze **Concept Drift**  
-- 🔹 Compare evolving fuzzy models with online baselines  
-
-All concepts are demonstrated through **interactive Jupyter notebooks**.
+The structure below reflects the **current folder organization** of the project.
 
 ---
 
@@ -35,139 +12,162 @@ All concepts are demonstrated through **interactive Jupyter notebooks**.
 ```
 EFNNDriftInterpretability/
 │
-├── notebooks/
-│   ├── Notebook1_FNN_Interpretability.ipynb
-│   └── Notebook2_EvolvingFuzzySystems_Drift.ipynb
-│
 ├── models/
-│   └── models.py              # Fuzzy Neural Network model
+│   ├── models.py                 # Core FNN / EFNN models
+│   ├── evolving_nf_advanced.py   # Advanced evolving NF (used in drift demos)
+│   └── operators.py              # Fuzzy operators
 │
 ├── experiments/
-│   └── calculate.py           # Interpretability metrics
+│   ├── calculate.py              # Interpretability matrices (consistency, similarity, overlap)
+│   ├── evaluation.py             # Evaluation helpers
+│   ├── kg.py                     # Knowledge graph construction
+│   ├── kgfuzzyrules.py           # Fuzzy rules → KG utilities
+│   ├── plots.py                  # Plotting utilities
+│   └── utils.py                  # Shared helpers
 │
-├── README.md                  # This file
-└── requirements.txt           # Optional dependency list
+├── Notebook1_FNN_UC3M_EN_v1_1.ipynb
+├── Notebook2_EFS_IA02_Interpretability_in_Evolution.ipynb
+├── Notebook2_UC3M_EvolvingFuzzySystems_Drift_EN.ipynb
+│
+└── README.md
 ```
 
 ---
 
-## 🧪 Notebook Overview
+## 📓 Notebooks Overview
 
-### 📘 Notebook 1 — Fuzzy Neural Networks & Interpretability
-- Fuzzification layers (Gaussian MFs)
-- Rule generation and explosion
-- Pseudo-inverse learning
-- Interpretability metrics:
+### 🧠 Notebook 1 — FNN & Interpretability
+**`Notebook1_FNN_UC3M_EN_v1_1.ipynb`**
+
+Focus:
+- Fuzzy Neural Networks (FNN)
+- Fuzzification and membership functions
+- Rule extraction
+- Interpretability matrices:
   - Consistency
   - Similarity
   - Distinguishability
-  - e-Completeness
-- Visual explanation of fuzzy rules
+  - ε‑Completeness
+- Knowledge graphs from fuzzy rules
 
-### 📕 Notebook 2 — Evolving Systems & Concept Drift
-- What is a data stream?
-- Types of concept drift:
-  - Sudden
-  - Gradual
-  - Incremental
-  - Recurring
-- Prequential (online) evaluation
-- Drift detection with **ADWIN**
-- Comparison:
-  - ENFS_Uni0 (Evolving Fuzzy Classifier)
-  - River online baselines
-- Visual drift markers and rolling accuracy
+This notebook uses:
+- `models/models.py`
+- `experiments/calculate.py`
+- `experiments/kg*.py`
 
 ---
 
-## ⚙️ Installation Guide (Quick Start)
+### 🔄 Notebook 2 — Evolving Fuzzy Systems & Interpretability
+**`Notebook2_EFS_IA02_Interpretability_in_Evolution.ipynb`**
 
-### 1️⃣ Create a virtual environment (recommended)
+Focus:
+- Evolving Fuzzy Systems (eFS)
+- Rule evolution over time
+- Interpretability during learning
+- Visualization of evolving rules
 
-**Windows**
-```powershell
+Uses the **evolvingfuzzysystems** library and local utilities.
+
+---
+
+### 🌊 Notebook 3 — Data Streams & Concept Drift
+**`Notebook2_UC3M_EvolvingFuzzySystems_Drift_EN.ipynb`**
+
+Focus:
+- Data streams
+- Concept drift (sudden, gradual, incremental, recurring)
+- Prequential evaluation
+- Drift detection (e.g. ADWIN)
+- Comparison of multiple eFS models
+- Rule growth vs accuracy trade‑off
+
+Uses:
+- `models/evolving_nf_advanced.py`
+- `experiments/*`
+- `river` (for synthetic drift streams)
+
+---
+
+## ⚙️ Requirements
+
+### 🐍 Python
+- **Python ≥ 3.10** (recommended: 3.11)
+
+### 📦 Main Libraries
+```
+numpy
+scipy
+pandas
+matplotlib
+seaborn
+scikit-learn
+networkx
+river
+evolvingfuzzysystems
+jupyterlab
+```
+
+Install everything with:
+
+```bash
+pip install numpy scipy pandas matplotlib seaborn scikit-learn networkx river evolvingfuzzysystems jupyterlab
+```
+
+---
+
+## ▶️ How to Run
+
+1. Clone the repository:
+```bash
+git clone https://github.com/pdecampossouza/EFNNDriftInterpretability.git
+cd EFNNDriftInterpretability
+```
+
+2. (Optional) Create a virtual environment:
+```bash
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+source .venv/bin/activate  # Linux / Mac
+.\.venv\Scripts\Activate.ps1  # Windows PowerShell
 ```
 
-**macOS / Linux**
+3. Start Jupyter:
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+jupyter lab
 ```
 
-### 2️⃣ Upgrade core tools
-```bash
-python -m pip install --upgrade pip setuptools wheel
-```
-
-### 3️⃣ Install dependencies
-```bash
-pip install numpy scipy pandas matplotlib seaborn scikit-learn tqdm river evolvingfuzzysystems jupyter
-```
-
-### 4️⃣ Launch Jupyter
-```bash
-jupyter notebook
-```
+4. Open the notebooks in order:
+- Notebook 1 → fundamentals & interpretability
+- Notebook 2 → evolving systems
+- Notebook 3 → drift & streams
 
 ---
 
-## 🧠 Key Concepts Illustrated
+## 🎓 For Students
 
-- 🧩 Interpretability ≠ Black box  
-- 🔁 Learning without retraining  
-- 📈 Stability vs Adaptation  
-- 🔍 Rules as knowledge units  
-- 🚨 Drift-aware decision making  
+✔ All notebooks are **self‑contained**  
+✔ Heavy experiments are **optional**  
+✔ Focus on:
+- Concepts
+- Visualizations
+- Interpretability insights
 
----
-
-## 📊 Evaluation Methodology
-
-- **Prequential learning** (predict → learn)
-- **Rolling accuracy**
-- **ADWIN drift detection**
-- Rule growth and pruning over time
+You do **not** need to understand all code details to follow the lecture.
 
 ---
 
-## 📌 Notes
+## 📚 Citation
 
-- Some numerical warnings (overflow, RLS instability) may appear — this is **expected** in adaptive systems and does not affect learning.
-- The notebooks are designed to be **didactic**, not optimized for large-scale deployment.
+If you use the evolving fuzzy systems library, please cite:
 
----
-
-## 📚 References
-
-- Alves, K. S. T. R. *Evolvingfuzzysystems: A Python Library*. Zenodo, 2025.  
-  🔗 https://doi.org/10.5281/zenodo.15748291
-
-- P. V. C. Souza et al. *Evolving Fuzzy Neural Networks for Interpretable Learning*
+> SA TELES ROCHA ALVES, K. (2025). *Evolvingfuzzysystems: a new Python library*. Zenodo.  
+> https://doi.org/10.5281/zenodo.15748291
 
 ---
 
-## 🤝 Acknowledgements
+## 🤝 Contact
 
-Special thanks to:
-- **Universidad Carlos III de Madrid (UC3M)**
-- **NOVA IMS**
-- **Kaike Alves** for the evolvingfuzzysystems library
+**Paulo Vitor de Campos Souza**  
+NOVA IMS / UC3M  
+GitHub: https://github.com/pdecampossouza
 
----
-
-## ⭐ How to Cite
-
-If you use this material in academic work, please cite the repository:
-
-```
-Souza, P. V. C. (2026).
-EFNN Drift & Interpretability.
-GitHub repository.
-https://github.com/pdecampossouza/EFNNDriftInterpretability
-```
-
----
-
-🚀 **Enjoy exploring interpretable evolving fuzzy systems!**
+Enjoy the notebooks and happy learning! 🚀
