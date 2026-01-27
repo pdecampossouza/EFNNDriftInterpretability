@@ -156,7 +156,6 @@ class FNNModel:
             self.neuron_weights = self.rng_seed.random(
                 (self.total_fuzzy_neurons, num_features)
             )  # Generates random weights
-            self.adjust_weights_by_density(x)
         self.rules_dictionary = self.generate_rules_dictionary()
         return fuzzy_outputs  # Return the fuzzy outputs
 
