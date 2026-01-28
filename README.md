@@ -102,7 +102,9 @@ matplotlib
 seaborn
 scikit-learn
 networkx
-river
+river,
+tensorflow,
+pyswarm,
 evolvingfuzzysystems
 jupyterlab
 ```
@@ -110,7 +112,7 @@ jupyterlab
 Install everything with:
 
 ```bash
-pip install numpy scipy pandas matplotlib seaborn scikit-learn networkx river evolvingfuzzysystems jupyterlab
+pip install numpy scipy pandas matplotlib seaborn scikit-learn networkx river evolvingfuzzysystems jupyterlab pyswarm tensorflow
 ```
 
 ---
